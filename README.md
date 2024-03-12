@@ -1,1 +1,2 @@
 This project is about learning how to use Maven,Heroku, Travis and GitHub.
+[![Build Status](https://app.travis-ci.com/Aylindogn/myDemoApp.svg?token=CBQBf4zxrqhi8p7zJXxi&branch=main)](https://app.travis-ci.com/Aylindogn/myDemoApp)
