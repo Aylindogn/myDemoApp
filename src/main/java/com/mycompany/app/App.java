@@ -64,21 +64,46 @@ public class App
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
 
-    public static int[] basicSort(int arr[]) {
-        int n = arr.length;
+    public static boolean basicSort(ArrayList<Integer> arr,ArrayList<Integer> arr2,int a1,int a2) {
+if(arr==null&&arr2==null)
+    return true;
+       if(arr==null)
+           return false;
+        if(arr2==null)
+            return false;
 
-        for (int i = 0; i < n-1; i++)
-        {
-            int min = i;
-            for (int j = i+1; j < n; j++)
-                if (arr[j] < arr[min])
-                    min = j;
+        arr.add(a1);
+        arr2.add(a2);
 
-            int temp = arr[min];
-            arr[min] = arr[i];
-            arr[i] = temp;
+
+        int n = arr.size();
+        for (int i = 1; i < n; ++i) {
+            int key = arr.get(i);
+            int j = i - 1;
+
+            while (j >= 0 && arr.get(j) > key) {
+                arr.set(j + 1,arr.get(j) ) ;
+                j = j - 1;
+            }
+            arr.set(j+1,key);
         }
-        return arr;
+
+
+        int n2 = arr2.size();
+
+        for (int i = 1; i < n; ++i) {
+            int key = arr2.get(i);
+            int j = i - 1;
+
+            while (j >= 0 && arr2.get(j) > key) {
+                arr2.set(j + 1,arr2.get(j))  ;
+                j = j - 1;
+            }
+            arr2.set(j+1,key);
+        }
+
+        return arr.equals(arr2);
+
     }
     public static boolean search(ArrayList<Integer> array, int e) {
         System.out.println("inside search");
